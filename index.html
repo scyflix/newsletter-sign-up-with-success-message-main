@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @font-face {
+        font-family: "Roboto";
+        src: url("../fonts/Roboto-Bold.ttf") format("ttf");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Roboto";
+        src: url("../fonts/Roboto-Regular.ttf") format("ttf");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        color: hsl(0, 0%, 100%);
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+
+        background: hsl(235, 18%, 26%);
+        color: hsl(234, 29%, 20%);
+      }
+      h1 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-size: 3.2rem;
+        margin: 0 20px 40px;
+      }
+      .main {
+        display: flex;
+        margin: 0 auto;
+        border-radius: 16px;
+        justify-content: space-between;
+        align-items: center;
+        background: hsl(0, 0%, 100%);
+        max-width: 850px;
+      }
+      .success {
+        display: none;
+        position: relative;
+        border-radius: 16px;
+        background: hsl(0, 0%, 100%);
+        max-width: 450px;
+        margin: 0 auto;
+        padding: 30px 20px;
+      }
+
+      ul {
+        padding: 0;
+        margin: 20px;
+      }
+
+      ul li {
+        margin: 10px 0;
+        list-style-image: url("assets/images/icon-list.svg");
+      }
+      p {
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+      }
+      .errorMsg {
+        color: hsl(4, 100%, 67%);
+      }
+      label {
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+      form {
+        margin: 20px;
+      }
+      img {
+        margin: 20px;
+      }
+      #inputTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+      }
+      input {
+        width: 100%;
+        padding: 15px 10px;
+        margin: 0 0 12px 0;
+        border-radius: 8px;
+        border: 2px solid hsl(0, 0%, 58%);
+      }
+      input:active {
+        border-color: hsl(234, 29%, 20%);
+      }
+      .error::placeholder {
+        color: hsl(4, 100%, 67%);
+      }
+      .error {
+        background-color: hsla(4, 100%, 67%, 0.221);
+        border-color: hsl(4, 100%, 67%);
+      }
+      button {
+        width: 100%;
+        padding: 15px;
+        margin: 0 auto;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        border: 0;
+        outline: 0;
+        background: hsl(234, 29%, 20%);
+        color: hsl(0, 0%, 100%);
+      }
+      button:active {
+        background: linear-gradient(
+          95deg,
+          hsl(4, 100%, 67%),
+          hsl(24, 100%, 50%)
+        );
+      }
+      .success.hide,
+      .main.hide {
+        display: none;
+      }
+      #userEmail {
+        font-weight: 700;
+      }
+      a.nav {
+        color: hsl(0, 0%, 0%);
+        position: absolute;
+        top: 20px;
+        left: 50px;
+        background: hsl(0, 0%, 58%);
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+      a.nav:hover {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <main role="main">
+      <div class="main">
+        <section class="form">
+          <h1>Stay updated!</h1>
+          <form>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <ul>
+              <li>Product discovery and building what matters</li>
+              <li>Measuring to ensure updates are a success</li>
+              <li>And much more!</li>
+            </ul>
+            <div id="inputTop">
+              <label for="email">Email address</label>
+              <p class="errorMsg"></p>
+            </div>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="email@company.com"
+            />
+            <button id="subBtn" type="button">
+              Subscribe to monthly newsletter
+            </button>
+          </form>
+        </section>
+        <section class="img">
+          <img
+            src="assets/images/illustration-sign-up-desktop.svg"
+            alt="Image illustration"
+          />
+        </section>
+      </div>
+
+      <section class="success">
+        <img
+          class="icon"
+          src="assets/images/icon-success.svg"
+          alt="Success Icon"
+        />
+        <h1>Thanks for subscribing!</h1>
+        <p>
+          A confirmation email has been sent to <span id="userEmail"></span>.
+          Please open it and click the button inside to confirm your
+          subscription.
+        </p>
+        <button id="dismissBtn" type="button">Dismiss message</button>
+      </section>
+      <a class="nav" href="mobile.html">Mobile</a>
+    </main>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script>
+      const main = document.querySelector(".main");
+      const email = document.getElementById("email");
+      const subBtn = document.getElementById("subBtn");
+      const dismissBtn = document.getElementById("dismissBtn");
+      const success = document.querySelector(".success");
+      const errorMsg = document.querySelector(".errorMsg");
+      const userEmail = document.getElementById("userEmail");
+
+      subBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!email.value.includes("@")) {
+          errorMsg.textContent = "Valid email required";
+          email.classList.add("error");
+          return;
+        }
+
+        userEmail.textContent = email.value;
+        main.classList.add("hide");
+        success.style.display = "block";
+      });
+      dismissBtn.addEventListener("click", () => {
+        success.style.display = "none";
+        main.classList.remove("hide");
+      });
+    </script>
+  </body>
+</html>
